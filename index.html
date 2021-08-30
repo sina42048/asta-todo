@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-container">
+            <h1>Asta Todo</h1>
+            <hr>
+            <div class="form-container">
+                <form action="/index.html" method="POST" id="todoForm" name="todoForm">
+                    <div class="input-container">
+                        <label for="title">Enter Title:</label>
+                        <input type="text" name="title" id="title" class="input" placeholder="title">
+                    </div>
+                    <div class="input-container">
+                        <label for="description">Enter Description:</label>
+                        <input type="text" name="description" id="description" class="input" placeholder="description">
+                    </div>
+                    <div class="input-container">
+                        <label for="date">Enter Date:</label>
+                        <input type="text" name="date" class="input" id="date" placeholder="yyyy/mm/dd hh:mm:ss">
+                    </div>
+                    <button type="submit" id="todoSubmit" class="submit-button">Add Todo</button>
+                </form>
+            </div>
+            <hr>
+            <div class="items-container" id="todoItemsContainer">
+                <p class="empty-todo-list" id="emptyTodosHolder">todo list is empty</p>
+                <p id="helper" style="display: none;">✍️ Edit: Left Click ✂️ Delete: Right Click ✨ Toggle complete: Ctrl + left click</p>
+
+            </div>
+        </div>
+    </div>    
+
+    <script src="./main.js"></script>
+</body>
+</html>
