@@ -60,7 +60,7 @@
     dateInput.addEventListener("focus", (e) => {
         if (e.target.value === '') {
             const date = new Date();
-            e.target.value = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            e.target.value = `${date.getFullYear()}/${helperTools.fixDateTime(date.getMonth() + 1)}/${helperTools.fixDateTime(date.getDate())} ${helperTools.fixDateTime(date.getHours())}:${helperTools.fixDateTime(date.getMinutes())}:${helperTools.fixDateTime(date.getSeconds())}`;
         }
     })
 
@@ -191,7 +191,7 @@
         }
 
         const dateTime = (date) => {
-            if (date && date.match(/^(?:\d{4})\/(?:\d{1,2})\/(?:\d{1,2}) (?:\d{1,2})\:(?:\d{1,2})\:(?:\d{1,2})$/)) {
+            if (date && date.match(/^(?:\d{4})\/(?:\d{2})\/(?:\d{2}) (?:\d{2})\:(?:\d{2})\:(?:\d{2})$/)) {
                 return true;
             }
             errorMessage = `Please enter date in the correct format: yyyy/mm/dd hh:mm:ss`;
@@ -206,5 +206,13 @@
             getErrorMessage
         }
 
+    })();
+
+    const helperTools = (function() {
+        return {
+            fixDateTime: (value) => {
+                return value > 0 && value < 10 ? "0" + value : value;
+            }
+        }
     })();
 }();
