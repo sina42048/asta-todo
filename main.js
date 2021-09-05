@@ -60,7 +60,7 @@
     dateInput.addEventListener("focus", (e) => {
         if (e.target.value === '') {
             const date = new Date();
-            e.target.value = `${date.getFullYear()}/${date.getMonth()}/${date.getDay()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            e.target.value = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
         }
     })
 
@@ -82,9 +82,9 @@
     const editTodo = (id) => {
         todoId = parseInt(id);
         submitBtn.innerText = "Edit Todo";
-        titleInput.value = todos[todoId].title;
-        descriptionInput.value = todos[todoId].description;
-        dateInput.value = todos[todoId].date;
+        titleInput.value = todos[id].title;
+        descriptionInput.value = todos[id].description;
+        dateInput.value = todos[id].date;
         dateInput.disabled = true;
     };
 
